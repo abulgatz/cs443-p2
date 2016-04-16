@@ -1,6 +1,8 @@
-function motionVectors = PsuedoCodeVersion(targetFrame,referenceFrame,N,p)
+function [uValues,vValues] = PsuedoCodeVersion(targetFrame,referenceFrame,N,p)
  [rows, cols,q] = size(targetFrame);
  macro_block_number = 1;    
+ targetFrame = im2double(targetFrame);
+ referenceFrame = im2double(referenceFrame);
  for x = 1 : N : rows-N+1
     for y = 1 : N : cols-N+1
         min_MAD = 10000;
@@ -14,8 +16,8 @@ function motionVectors = PsuedoCodeVersion(targetFrame,referenceFrame,N,p)
                 end
             end
         end
-        motionVectors(1,macro_block_number) = u;
-        motionVectors(2,macro_block_number) = v;
+        uValues(1,macro_block_number) = u;
+        vValues(1,macro_block_number) = v;
         macro_block_number = macro_block_number + 1;
     end
  end
