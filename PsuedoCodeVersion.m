@@ -1,5 +1,5 @@
 function [uValues,vValues] = PsuedoCodeVersion(targetFrame,referenceFrame,N,p)
- [rows, cols,q] = size(targetFrame);
+[rows, cols,q] = size(targetFrame);
  macro_block_number = 1;    
  targetFrame = im2double(targetFrame);
  referenceFrame = im2double(referenceFrame);

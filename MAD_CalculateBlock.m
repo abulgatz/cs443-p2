@@ -10,5 +10,5 @@ difference = 0;
            difference = difference + abs(TargetFrame(x+k,y+l) - referenceFrame(x+i+k,y+j+l));
         end
     end
-    MAD_Value = (1/N^2)*difference;
+    MAD_Value = difference;
  end
