@@ -14,7 +14,8 @@ function [motionVectors, mcFrame] = blockMatchingSequential(targetFrame,referenc
     referenceFrame = im2double(referenceFrame);
     
     % Initialize size of motion compensated frame
-    mcFrame = zeros(rows, cols);
+    % mcFrame = zeros(rows, cols);
+    mcFrame = referenceFrame;
 
     % First pixel of each macro block.
     % (x,y) is the first pixel of the current macro block

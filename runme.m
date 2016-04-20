@@ -1,12 +1,17 @@
-rf = imread('sample2_changetogray_suzie038_frame1.bmp');
-tf = imread('sample2_changetogray_suzie039_frame2.bmp');
+rf = imread('sample1_akiyo_frame1.bmp');
+tf = imread('sample1_akiyo_frame2.bmp');
+
+N = 16;
+p = 7;
 
 rf = rgb2gray(rf);
 tf = rgb2gray(tf);
 
-[motionVectors, mcFrame] = blockMatchingSequential(tf, rf, 16, 7);
+[motionVectors, mcFrame] = blockMatchingSequential(tf, rf, N, p);
 FD = computeFrameDifference(tf, rf);
 DFD = computeFrameDifference(tf, mcFrame);
+
+imgLines = drawMotionVectors(mcFrame,motionVectors, N);
 
 subplot(2,3,1);
 imshow(rf);
@@ -19,6 +24,10 @@ title('Target');
 subplot(2,3,3);
 imshow(mcFrame);
 title('Motion Compensated');
+
+subplot(2,3,4);
+imshow(imgLines);
+title('Motion Vectors');
 
 subplot(2,3,5);
 imshow(FD);
