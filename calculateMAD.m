@@ -10,5 +10,5 @@ function MAD = calculateMAD(targetFrame,referenceFrame,N,i,j,x,y)
             difference = difference + abs(targetFrame(x+k,y+l) - referenceFrame(x+i+k,y+j+l));
         end
     end
-    MAD = difference;
+    MAD = (1/(N^2))*difference;
 end

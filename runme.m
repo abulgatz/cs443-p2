@@ -9,7 +9,7 @@ function runme(targetFrameName,referenceFrameName,N,p)
     FD = computeFrameDifference(tf, rf);
     DFD = computeFrameDifference(tf, mcFrame);
 
-    imgLines = drawMotionVectors(mcFrame,motionVectors, N);
+    imgLines = drawMotionVectors(tf,motionVectors, N);
 
     subplot(2,3,1);
     imshow(rf);
